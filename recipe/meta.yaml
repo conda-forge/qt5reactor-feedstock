@@ -1,8 +1,8 @@
 {% set name = "qt5reactor" %}
-{% set version = "0.5" %}
+{% set version = "0.6" %}
 {% set file_ext = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "58d71f17188c896596e5f23f0eb884c966208a4db935e506d931797cbd1c0cbe" %}
+{% set hash_value = "b375af4ac359035499c98d3bc9a77baed0617a9216121abfa9a344bdf8d9981f" %}
 
 package:
   name: '{{ name|lower }}'
@@ -13,7 +13,7 @@ source:
   '{{ hash_type }}': '{{ hash_value }}'
 
 build:
-  number: 1
+  number: 0
   skip: True  # [win or py2k]
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 

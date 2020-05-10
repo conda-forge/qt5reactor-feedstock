@@ -1,21 +1,18 @@
 {% set name = "qt5reactor" %}
-{% set version = "0.6" %}
-{% set file_ext = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash_value = "b375af4ac359035499c98d3bc9a77baed0617a9216121abfa9a344bdf8d9981f" %}
+{% set version = "0.6.1" %}
 
 package:
-  name: '{{ name|lower }}'
-  version: '{{ version }}'
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ file_ext }}
-  '{{ hash_type }}': '{{ hash_value }}'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 9f02e45ffa891eea98cfba39dccf719dcd515fa73254bb4d53ba936f3d7836f0
 
 build:
   number: 0
-  skip: True  # [win or py2k]
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  skip: true  # [win or py2k]
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
